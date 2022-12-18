@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<title>HATARI - Головна сторінка</title>
+	<link rel="icon" href="img/icon.png"> 
+	<style>
+
+		/* Забрала відступи навколо сторінки */
+		* { 
+			margin: 0;
+			padding: 0;
+		}
+
+		html, body {
+			height: 100%; /* подивилася відео, щоб футер був знизу */
+			font-family: 'Times New Roman', Times, serif;
+		}
+
+		/* https://www.youtube.com/watch?v=kNGYuTelE3E - подивилася відео, щоб футер був знизу */
+		.wrapper {
+			min-height: 100%;
+			display: flex;
+			flex-direction: column;
+		}
+
+		/* ШАПКА ============================================================================================== */
+		.header {
+			background: black;
+		}
+
+		.header_menu { /* Щоб усі елементи шапки були посередині з текстом*/
+			display: flex; 
+			justify-content: center;
+			text-align: center;
+		}
+
+		.header_menu_items { /* Щоб елементи меню були в рядок і посередині */
+			display: flex;
+			align-items: center;
+		}
+
+		.header_menu_items li { /* Елементи меню */
+			list-style: none; /* Щоб не було маркування */
+			padding: 5px 20px; /* Щоб відступи були зверху і знизу */
+		}
+
+		.header_menu_items li a { /* Посилання на елементах меню */
+			text-decoration: none; /* Щоб не було нижнього підкреслення посилання */
+			color: chocolate;
+			font-size: 35px;
+			font-style: italic; /* Щоб був похилий шрифт */
+		}
+
+		.header_menu_items li p { /* Текстове розділення меню | */
+			color: chocolate;
+			font-size: 35px;
+		}
+
+		.header_index_page { /* Щоб посилання на сторінку було по середині */
+			text-align: center;
+		}
+
+		.header_index_page a { /* Посилання на сторінку початкову */
+			text-decoration: none;
+			color: burlywood;
+			font-size: 15px;
+		}
+
+		/* ВМІСТ СТОРІНКИ ============================================================================================== */
+		.content {
+			flex: 1 1 auto; /* Подивилася відео, щоб футер був знизу */
+			background: url(img/index_hatari.jpg); /* Щоб фонове зображення було */ 
+			background-size: 100%; /* Фонове зображення розмір на всю сторінку */ 
+			position: relative;
+		}
+
+		.content_marquee marquee { /* Щоб бігункова полоса була такого кольору */
+			background-color: purple;
+		}
+
+		.content_text { /* Щоб текст був на знизу і посередині */
+			color: red;
+			font-size: 100px;
+			position: absolute;
+			bottom: 0px;
+			width: 100%;
+			text-align: center;
+		}
+
+		/* ФУТЕР ============================================================================================== */
+		.footer {
+			background: black;
+		}
+
+		#footer_text {
+			text-align: center;
+			padding: auto;
+			color: green;
+		}
+	</style>
+	<script language="JavaScript">
+		var interv = new Array();
+		for (var j = 0; j <= 30; j += 3) {
+			interv.push(j.toString() + "px");
+		}
+
+		var i = 0;
+		var reverse = false;
+		function rubber() {
+			var elem = document.all.footer_text;
+			elem.style.letterSpacing = interv[i];
+			if (reverse) {
+				if (i == 0) {
+					reverse = false;
+				} else {
+					i--;
+				}
+			} else {
+				if (i == (interv.length - 1)) {
+					reverse = true;
+				} else {
+					i++;
+				}
+			}
+			setTimeout("rubber()", 150);
+		}
+	</script>
+</head>
+<body onload="rubber();">
+	<div class="wrapper">
+		<header class="header">
+			<nav class="header_menu">
+				<ul class="header_menu_items">
+					<li><a href="info.html">ПРО ГРУПУ</a></li>
+					<li><p>|</p></li>
+					<li><a href="tours.html">ТУРИ</a></li>
+					<li><p>|</p></li>
+					<li><a href="contacts.html">КОНТАКТИ</a></li>
+				</ul>
+			</nav>
+			<div class="header_index_page">
+				<a href="index.html">ПОВЕРНУТИСЯ НА ГОЛОВНУ СТОРІНКУ</a>
+			</div>
+		</header>
+	
+		<div class="content">
+			<div class="content_marquee">
+				<marquee behavior="alternate" direction="right">
+					САЙТ З УСІМ, ЩО ТРЕБА!
+				</marquee>
+			</div>
+			<div class="content_text">
+				HATARI
+			</div>
+		</div>
+	
+		<footer class="footer">
+			<p id="footer_text">
+				(с) Усі права захищено
+			</p>
+		</footer>
+	</div>
+</body>
+
+</html>

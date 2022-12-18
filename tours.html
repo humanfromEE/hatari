@@ -1,0 +1,194 @@
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<title>HATARI - Тури</title>
+	<link rel="icon" href="img/icon.png">
+
+	<style>
+
+		/* Забрала відступи навколо сторінки */
+		* { 
+			margin: 0;
+			padding: 0;
+		}
+
+		html, body {
+			height: 100%; /* подивилася відео, щоб футер був знизу */
+			font-family: 'Times New Roman', Times, serif;
+		}
+
+		/* https://www.youtube.com/watch?v=kNGYuTelE3E - подивилася відео, щоб футер був знизу */
+		.wrapper {
+			min-height: 100%;
+			display: flex;
+			flex-direction: column;
+		}
+
+		/* ШАПКА ============================================================================================== */
+		.header {
+			background: black;
+		}
+
+		.header_menu { /* Щоб усі елементи шапки були посередині з текстом*/
+			display: flex; 
+			justify-content: center;
+			text-align: center;
+		}
+
+		.header_menu_items { /* Щоб елементи меню були в рядок і посередині */
+			display: flex;
+			align-items: center;
+		}
+
+		.header_menu_items li { /* Елементи меню */
+			list-style: none; /* Щоб не було маркування */
+			padding: 5px 20px; /* Щоб відступи були зверху і знизу */
+		}
+
+		.header_menu_items li a { /* Посилання на елементах меню */
+			text-decoration: none; /* Щоб не було нижнього підкреслення посилання */
+			color: chocolate;
+			font-size: 35px;
+			font-style: italic; /* Щоб був похилий шрифт */
+		}
+
+		.header_menu_items li p { /* Текстове розділення меню | */
+			color: chocolate;
+			font-size: 35px;
+		}
+
+		.header_index_page { /* Щоб посилання на сторінку було по середині */
+			text-align: center;
+		}
+
+		.header_index_page a { /* Посилання на сторінку початкову */
+			text-decoration: none;
+			color: burlywood;
+			font-size: 15px;
+		}
+
+		/* ВМІСТ СТОРІНКИ ============================================================================================== */
+		.content {
+			flex: 1 1 auto; /* Подивилася відео, щоб футер був знизу */
+			background: url(img/index_hatari.jpg); /* Щоб фонове зображення було */ 
+			background-size: 100%; /* Фонове зображення розмір на всю сторінку */ 
+			position: relative;
+		}
+
+		.content_marquee marquee { /* Щоб бігункова полоса була такого кольору */
+			background-color: purple;
+		}
+
+		.content_text_top_list { /* Щоб текст був на знизу і посередині з відступами по боках */
+            background-color: black;
+            font-size: 16px;
+			color: blue;
+			position: flex;
+            margin: 10% 15% 0% 15%;
+            width: 70%;
+            text-align: center;
+		}
+
+        .content_text_top_list li { /* Елементи списку */
+            list-style: none; /* Щоб не було маркування */
+        }
+
+        .content_text_top_photo { /* Щоб картинки були знизу по середині */
+			position: relative;
+			width: 100%;
+			text-align: center;
+            margin: 2% 0% 0% 0%;
+        }
+
+        .content_text_top_photo img { /* Щоб картинка була розмірів */
+            width: 150px;
+            height: 150px;
+        }
+
+		/* ФУТЕР ============================================================================================== */
+		.footer {
+			background: black;
+		}
+
+		#footer_text {
+			text-align: center;
+			padding: auto;
+			color: green;
+		}
+	</style>
+
+	<script language="JavaScript">
+		var textLine = "(с) Усі права захищено";
+		var i = 0;
+		function nabir() {
+			i++;
+			if (i <= textLine.length) {
+				document.all.footer_text.innerText = textLine.substring(0, i);
+			} else {
+				document.all.footer_text.innerText = "";
+				i = 0;
+			}
+		}
+		setInterval("nabir()", 1500);
+	</script>
+</head>
+<body onload="nabir();">
+	<div class="wrapper">
+		<header class="header">
+			<nav class="header_menu">
+				<ul class="header_menu_items">
+					<li><a href="info.html">ПРО ГРУПУ</a></li>
+					<li><p>|</p></li>
+					<li><a href="tours.html">ТУРИ</a></li>
+					<li><p>|</p></li>
+					<li><a href="contacts.html">КОНТАКТИ</a></li>
+				</ul>
+			</nav>
+			<div class="header_index_page">
+				<a href="index.html">ПОВЕРНУТИСЯ НА ГОЛОВНУ СТОРІНКУ</a>
+			</div>
+		</header>
+	
+		<div class="content">
+			<div class="content_marquee">
+				<marquee behavior="alternate" direction="right">
+					САЙТ З УСІМ, ЩО ТРЕБА!
+				</marquee>
+			</div>
+			<div class="content_text_top">
+                <br>
+                <div class="content_text_top_list">
+                    <h1>Тури на 2023 рік</h1>
+                    <ul>
+                        <li>Рейк'явік</li>
+                        <li>Коупавогюр</li>
+                        <li>Акурейри</li>
+                        <li>Акранес</li>
+                        <li>Хабнарфьор</li>
+                    </ul>
+                </div>
+                <br>
+                <div class="content_text_top_photo">
+                    <img src="img/tours_1_hatari.jpg" alt="">
+                    <img src="img/tours_2_hatari.jpg" alt="">
+                    <img src="img/tours_3_hatari.jpg" alt="">
+                    <img src="img/tours_4_hatari.jpg" alt="">
+                    <img src="img/tours_5_hatari.jpg" alt="">
+                </div>
+                <br>
+			</div>
+		</div>
+	
+		<footer class="footer">
+			<p id="footer_text">
+				(с) Усі права захищено
+			</p>
+		</footer>
+	</div>
+</body>
+
+</html>
+
